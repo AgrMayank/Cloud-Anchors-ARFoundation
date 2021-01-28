@@ -500,6 +500,7 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                     }
 
                     _cachedCloudAnchors.Add(cloudAnchor);
+                    Debug.Log("Cloud Anchor Added ************ \n\n\n" + _cachedCloudAnchors + "/////\n\n with anchor ->\n" + cloudAnchor);
                 }
                 else if (cloudAnchor.cloudAnchorState != CloudAnchorState.TaskInProgress)
                 {
@@ -519,6 +520,8 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                     }
 
                     _cachedCloudAnchors.Add(cloudAnchor);
+                    Debug.Log("Cloud Anchor Added ************ \n\n\n" + _cachedCloudAnchors + "/////\n\n with anchor ->\n" + cloudAnchor);
+
                 }
             }
 
