@@ -229,6 +229,7 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
             {
                 var history = JsonUtility.FromJson<CloudAnchorHistoryCollection>(
                     PlayerPrefs.GetString(_persistentCloudAnchorsStorageKey));
+                Debug.Log("LOAD HISTORY ************ \n\n\n" + history);
 
                 // Remove all records created more than 24 hours and update stored history.
                 DateTime current = DateTime.Now;
@@ -236,6 +237,9 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                     data => current.Subtract(data.CreatedTime).Days > 0);
                 PlayerPrefs.SetString(_persistentCloudAnchorsStorageKey,
                     JsonUtility.ToJson(history));
+
+                Debug.Log("UPDATED HISTORY ************ \n\n\n" + history);
+
                 return history;
             }
 
@@ -262,6 +266,8 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                 history.Collection.RemoveRange(
                     _storageLimit, history.Collection.Count - _storageLimit);
             }
+
+            Debug.Log("*** SAVE HISTORY ************ \n\n\n" + history);
 
             PlayerPrefs.SetString(_persistentCloudAnchorsStorageKey, JsonUtility.ToJson(history));
         }
